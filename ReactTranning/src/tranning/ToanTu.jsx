@@ -56,6 +56,18 @@ const [firstFruits, secondFruits,...remainingFruits]=fruits;
                 })
             }
         </ul>
+        <h1> Danh sách Users có Gender = Male, Age Từ 19 đến 30</h1>
+<ul>
+    {
+        users.filter(user=>user.gender==="male" && user.age >=19 && user.age <=30).map((user, index)=>{
+            return(
+                <li key={index}>
+                   Name: {user.name} - Age: {user.age}
+                </li>
+            )
+        })
+    }
+</ul>
      </div>
     </div>
   )
