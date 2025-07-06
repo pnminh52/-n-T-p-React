@@ -1,48 +1,44 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const ToDoList = () => {
   const [tasks, setTasks] = useState([]);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
 
-  const addTodo = () => {
+  const addTodo = (e) => {
+    e.preventDefault(); // Ngăn reload
     const trimmed = input.trim();
-    // Hàm trim sẽ loại bỏ khoảng trắng ở đầu và cuối chuỗi
-    // kiểm tra nếu chỉ nhập dấu cách thì vẫn sẽ validate là chưa nhập gì
     if (!trimmed) {
-      alert("Không được bỏ trống~");
+      alert('Vui lòng nhập công việc');
       return;
     }
     setTasks([...tasks, trimmed]);
-    //Toán tử spread
-    setInput("");
-    //Xóa input sau khi thêm thành công
+    setInput('');
   };
 
-  const deleteTodo = (id) => {
-    const newTasks = tasks.filter((_, i) => i !== id);
+  const deleteTodo = (index) => {
+    const newTasks = tasks.filter((_, i) => i !== index);
     setTasks(newTasks);
   };
 
   return (
     <div>
-      <h1>Đây là todolist</h1>
-      <input
-        type="text"
-        placeholder="Nhập công việc"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-      />
-      <button onClick={addTodo}>Thêm</button>
+      <h1>Đây là Todo List</h1>
+      <form onSubmit={addTodo}>
+        <input
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          type="text"
+          placeholder="Nhập vào công việc cần làm"
+        />
+        <button type="submit">Thêm</button>
+      </form>
 
       <ul>
-        {tasks.map((task, id) => {
-          return (
-            <li key={task}>
-              {task}
-              <button onClick={() => deleteTodo(id)}>X</button>
-            </li>
-          );
-        })}
+        {tasks.map((task, index) => (
+          <li key={index}>
+            {task} <button onClick={() => deleteTodo(index)}>Xóa</button>
+          </li>
+        ))}
       </ul>
     </div>
   );

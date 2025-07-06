@@ -8,6 +8,10 @@ const [firstFruits, secondFruits,...remainingFruits]=fruits;
   const a = [1, 2, 3];
   const b = [4, 5, 6];
   const c = [...a, ...b];
+  const numberArray = [1, 2, 3];
+  const newNumberArray =  [...numberArray, 4]
+    const userInfo = { name: "Phạm Nhật Minh", age: 22 };
+    const newUserInfo = {...userInfo, gender:"male"}
   
 
   const user = {
@@ -69,6 +73,8 @@ const [firstFruits, secondFruits,...remainingFruits]=fruits;
     }
 </ul>
      </div>
+     <p>Danh sách mảng mới có thêm phần tử ở cuối {newNumberArray.join(", ")}</p>
+   <p>Thông tin người dùng mới sau khi thêm giới tính vào mảng là: {Object.values(newUserInfo).join(", ")}</p>
     </div>
   )
 }
