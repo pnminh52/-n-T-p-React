@@ -5,7 +5,7 @@ const ToDoList = () => {
   const [input, setInput] = useState('');
 
   const addTodo = (e) => {
-    e.preventDefault(); // Ngăn reload
+    e.preventDefault(); 
     const trimmed = input.trim();
     if (!trimmed) {
       alert('Vui lòng nhập công việc');

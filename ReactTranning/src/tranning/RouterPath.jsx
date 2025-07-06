@@ -14,6 +14,10 @@ const RouterPath = () => {
         <li>
         <Link to="/toantu">Toán Tử</Link>
         </li>
+        <li>        <Link to="/counter">Counting App</Link>
+        </li>
+         <li>        <Link to="/API">FetchAPIUsers</Link>
+                </li>
       </ul>
     </div>
   );
